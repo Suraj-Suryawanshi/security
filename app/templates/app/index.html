@@ -1,0 +1,79 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="row" style="margin-bottom:20px;">
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>Proses Encode</strong>
+					</div>
+					<div class="panel-body">
+						<form action="{% url 'encode' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+							<label>Picture</label>
+							<div class="form-group">
+								<input type="file" name="img" onchange="$('#preview')[0].src = window.URL.createObjectURL(this.files[0])" required="">
+							</div>
+
+							<label>Message</label>
+							<div class="form-group">
+								<textarea id="pesan" name='pesan' rows="3" cols="50" maxlength="50" required=""></textarea>
+								<div id="counter_char"></div>
+							</div>
+
+            				<input id="btnencodelsb" class="btn btn-success" type="submit" name="encodelsb" value='encode lsb'>
+            				<input id="btnencodenlsb" class="btn btn-default" type="submit" name="encodenlsb" value="encode nlsb">
+						</form>
+                	</div> 
+                </div>
+            </div>
+
+            <div class="col-sm-6" class="pull-right">
+            	<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>Process Decode</strong>
+					</div>
+					<div class="panel-body">
+						<form action="{% url 'decode' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+							<label>Picture</label>
+							<div class="form-group">
+								<input type="file" name="img" onchange="$('#preview')[0].src = window.URL.createObjectURL(this.files[0])" required="">
+							</div>
+
+            				<input id="btndecode" class="btn btn-success" type="submit" name="decodelsb" value="decode lsb">
+            				<input id="btndecode" class="btn btn-default" type="submit" name="decodenlsb" value="decode nlsb">
+						</form>
+                	</div> 
+                </div>
+        	</div>
+    	</div>
+		<img src="" id="preview">
+	</div>
+</div>
+
+Message: <strong>{{ result }}</strong>
+<br>
+PSNR Metode<font color="red"> {{ method }}:</font> <strong>{{ psnr }}</strong>
+
+<br><br><br>
+<div class="row" style="margin-bottom:20px;">
+	<div class="col-sm-12">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>Image Process</strong>
+					</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<textarea name='detail' rows="20" style="width: 100%"> {{ data }}</textarea>
+						</div>		
+                	</div> 
+                </div>
+            </div>
+
+    	</div>
+	</div>
+</div>
+{% endblock content %}

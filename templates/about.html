@@ -1,0 +1,376 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>About us</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Travello template project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+	<link href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/main_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/about.css' %}">
+</head>
+
+<body style="background-image: url({% static 'images/bg.jpeg' %});">
+
+	<div class="super_container ">
+
+		<!-- Header -->
+
+		<header class="header">
+			<div class="container ">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="header_content_inner d-flex flex-row align-items-end justify-content-start  ">
+								<div class="logo text-white"><a href="/">csSecurity</a></div>
+								<nav class="main_nav">
+									<ul class="d-flex flex-row align-items-start justify-content-start">
+
+
+										{% if user.is_authenticated %}
+										<li> Hello, "{{user.first_name}}"</li>
+										<li><a href="/">Home</a></li>
+										<li><a href="services">Sevices</a></li>
+										<li><a href="userReg/logout">logout</a></li>
+										{% else %}
+										<li class="active"><a href="/">Home</a></li>
+										<li><a href="userReg/register">Register</a></li>
+										<li><a href="userReg/login">Login</a></li>
+										<li><a href="/news">News</a></li>
+										<li class="active"><a href="/about">About</a></li>
+										{% endif %}
+									</ul>
+								</nav>
+								<div class="header_phone ml-auto">Call us: 9142152345</div>
+
+								<!-- Hamburger -->
+
+								<div class="hamburger ml-auto">
+									<i class="fa fa-bars" aria-hidden="true"></i>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="header_social d-flex flex-row align-items-center justify-content-start">
+				<ul class="d-flex flex-row align-items-start justify-content-start">
+					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</header>
+
+
+		<!-- Menu -->
+
+		<div class="menu">
+			<div class="menu_header d-flex flex-row align-items-center justify-content-start">
+				<div class="menu_logo"><a href="/">cs-Security</a></div>
+				<div class="menu_close_container ml-auto">
+					<div class="menu_close">
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu_content">
+
+
+				{% if user.is_authenticated %}
+				<li> Hello, "{{user.first_name}}"</li>
+				<li><a href="/">Home</a></li>
+				<li><a href="services">Sevices</a></li>
+				<li><a href="userReg/logout">logout</a></li>
+				{% else %}
+				<li class="active"><a href="/">Home</a></li>
+				<li><a href="userReg/register">Register</a></li>
+				<li><a href="userReg/login">Login</a></li>
+				<li><a href="/news">News</a></li>
+				<li class="active"><a href="/about">About</a></li>
+				{% endif %}
+			</div>
+			<div class="menu_social">
+				<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
+				<ul class="d-flex flex-row align-items-start justify-content-start">
+					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Home -->
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<!-- About -->
+		<main role="main">
+
+			<!-- Main jumbotron for a primary marketing message or call to action -->
+			<div class="jumbotron bg-secondary ">
+				<div class="container">
+					<h1 class="text-dark">cs-Security</h1>
+					<p>Digital communication witnesses a noticeable and continuous development
+						in many applications in the Internet. Hence, secure communication sessions
+						must be provided. The security of data transmitted across a global network
+						has turned into a key factor on the network performance measures. So, the
+						confidentiality and the integrity of data are needed to prevent eavesdroppers
+						from accessing and using transmitted data. Steganography and Cryptography
+						are two important techniques that are used to provide network security.
+						The aim of this project is to develop a new approach to hiding a secret
+						information in an image, by taking advantage of benefits of combining
+						cryptography and steganography.</p>
+					<br><br>
+					<div>
+						<h2 class="text-dark">Cryptography</h2>
+						<p>
+							Cryptography is the study of secure communications techniques that allow only the sender and
+							intended recipient of a message to view its contents. The term is derived from the Greek
+							word kryptos, which means hidden. It is closely associated to encryption, which is the act
+							of scrambling ordinary text into what's known as ciphertext and then back again upon
+							arrival. In addition, cryptography also covers the obfuscation of information in images
+							using techniques such as microdots or merging. Ancient Egyptians were known to use these
+							methods in complex hieroglyphics, and Roman Emperor Julius Caesar is credited with using one
+							of the first modern ciphers.
+							<br>
+							When transmitting electronic data, the most common use of cryptography is to encrypt and
+							decrypt email and other plain-text messages. The simplest method uses the symmetric or
+							"secret key" system. Here, data is encrypted using a secret key, and then both the encoded
+							message and secret key are sent to the recipient for decryption. The problem? If the message
+							is intercepted, a third party has everything they need to decrypt and read the message. To
+							address this issue, cryptologists devised the asymmetric or "public key" system. In this
+							case, every user has two keys: one public and one private. Senders request the public key of
+							their intended recipient, encrypt the message and send it along. When the message arrives,
+							only the recipient's private key will decode it — meaning theft is of no use without the
+							corresponding private key.
+						</p>
+						<h3>
+							What problems does cryptography solve?
+						</h3>
+						<p>
+							A secure system should provide several assurances such as confidentiality, integrity, and
+							availability of data as well as authenticity and non-repudiation. When used correctly,
+							crypto helps to provide these assurances. Cryptography can ensure the confidentiality and
+							integrity of both data in transit as well as data at rest. It can also authenticate senders
+							and recipients to one another and protect against repudiation.
+							<br>
+							Software systems often have multiple endpoints, typically multiple clients, and one or more
+							back-end servers. These client/server communications take place over networks that cannot be
+							trusted. Communication occurs over open, public networks such as the Internet, or private
+							networks which may be compromised by external attackers or malicious insiders.
+							<br>
+							It can protect communications that traverse untrusted networks. There are two main types of
+							attacks that an adversary may attempt to carry out on a network. Passive attacks involve an
+							attacker simply listening on a network segment and attempting to read sensitive information
+							as it travels. Passive attacks may be online (in which an attacker reads traffic in
+							real-time) or offline (in which an attacker simply captures traffic in real-time and views
+							it later—perhaps after spending some time decrypting it). Active attacks involve an attacker
+							impersonating a client or server, intercepting communications in transit, and viewing and/or
+							modifying the contents before passing them on to their intended destination (or dropping
+							them entirely).
+							<br>
+							The confidentiality and integrity protections offered by cryptographic protocols such as
+							SSL/TLS can protect communications from malicious eavesdropping and tampering. Authenticity
+							protections provide assurance that users are actually communicating with the systems as
+							intended. For example, are you sending your online banking password to your bank or someone
+							else?
+
+							It can also be used to protect data at rest. Data on a removable disk or in a database can
+							be encrypted to prevent disclosure of sensitive data should the physical media be lost or
+							stolen. In addition, it can also provide integrity protection of data at rest to detect
+							malicious tampering.
+						</p>
+						<h3>
+							What is the difference between symmetric and asymmetric cryptography?
+						</h3>
+						<p>
+							With symmetric cryptography, the same key is used for both encryption and decryption. A
+							sender and a recipient must already have a shared key that is known to both. Key
+							distribution is a tricky problem and was the impetus for developing asymmetric cryptography.
+
+							With asymmetric crypto, two different keys are used for encryption and decryption. Every
+							user in an asymmetric cryptosystem has both a public key and a private key. The private key
+							is kept secret at all times, but the public key may be freely distributed.
+							<br>
+							Data encrypted with a public key may only be decrypted with the corresponding private key.
+							So, sending a message to John requires encrypting that message with John’s public key. Only
+							John can decrypt the message, as only John has his private key. Any data encrypted with a
+							private key can only be decrypted with the corresponding public key. Similarly, Jane could
+							digitally sign a message with her private key, and anyone with Jane’s public key could
+							decrypt the signed message and verify that it was in fact Jane who sent it.
+							<br>
+							Symmetric is generally very fast and ideal for encrypting large amounts of data (e.g., an
+							entire disk partition or database). Asymmetric is much slower and can only encrypt pieces of
+							data that are smaller than the key size (typically 2048 bits or smaller). Thus, asymmetric
+							crypto is generally used to encrypt symmetric encryption keys which are then used to encrypt
+							much larger blocks of data. For digital signatures, asymmetric crypto is generally used to
+							encrypt the hashes of messages rather than entire messages.
+							<br>
+							A cryptosystem provides for managing cryptographic keys including generation, exchange,
+							storage, use, revocation, and replacement of the keys.
+						</p>
+					</div>
+					<br><br>
+					<div>
+						<h2 class="text-dark">Steganography</h2>
+						<p>
+							Steganography is the use of various methods to hide information from unwanted eyes. In
+							ancient times, steganography was mostly done physically.
+							<br>
+							The oldest documented case of steganography dates to 500 BC, in which Histiaeus, the ruler
+							of Milteus, tattooed a message on the shaved head of one of his slaves and let the hair grow
+							back. He then sent the slave to the Aristagoras, his son-in-law, who shaved the slave’s head
+							again and revealed the message.
+							<br>
+							In the centuries that followed, more modern forms of steganography were invented, such as
+							invisible inks. Today, steganography has moved to the digital world.
+							<br>
+							“Steganography by definition is the hiding of one file within another,” says Ira Winkler,
+							lead security principal at Trustwave.
+						</p>
+						<h3>How does Steganography work ?</h3>
+						<p>
+							Steganography works by hiding information in a way that doesn’t arouse suspicion. One of the
+							most popular techniques is 'least significant bit (LSB) steganography. In this type of
+							steganography, the information hider embeds the secret information in the least significant
+							bits of a media file.
+
+							For instance, in an image file each pixel is comprised of three bytes of data corresponding
+							to the colors red, green, and blue (some image formats allocate an additional fourth byte to
+							transparency, or ‘alpha’).
+
+							LSB steganography changes the last bit of each of those bytes to hide one bit of data. So,
+							to hide one megabyte of data using this method, you’ll need an eight-megabyte image file.
+
+							Since modifying the last bit of the pixel value doesn’t result in a visually perceptible
+							change to the picture, a person viewing the original and the steganographically modified
+							images won’t be able to tell the difference.
+
+							The same scheme can be applied to other digital media (audio and video), where data is
+							hidden in parts of the file that result in the least change to the audible or visual output.
+
+							Another less popular steganography technique is the use of word or letter substitution.
+							Here, the sender of the secret message hides the text by distributing it inside a much
+							larger text, placing the words at specific intervals.
+
+							While this substitution method is easy to use, it may also make the text look strange and
+							out of place, since the secret words might not fit particularly well into their target
+							sentences.
+
+							There are other types of steganography, such as hiding an entire partition on a hard drive,
+							or embedding data in the header section of files and network packets. The effectiveness of
+							these methods depends on how much data they can hide and how easy they are to detect.
+						</p>
+						<h3>
+							Least Significant Bit Steganography
+						</h3>
+						<p>
+							We can describe a digital image as a finite set of digital values, called pixels. Pixels are
+							the smallest individual element of an image, holding values that represent the brightness of
+							a given color at any specific point. So we can think of an image as a matrix (or a
+							two-dimensional array) of pixels which contains a fixed number of rows and columns.
+							Least Significant Bit (LSB) is a technique in which the last bit of each pixel is modified
+							and replaced with the secret message’s data bit.
+							<img src="{%static 'images/steg.png' %}" alt="">
+							<img src="{%static 'images/steg2.png' %}" alt="">
+							<br>
+							From the above image it is clear that, if we change MSB it will have a larger impact on the
+							final value but if we change the LSB the impact on the final value is minimal, thus we use
+							least significant bit steganography.
+						</p>
+						<h4>
+							How LSB technique works?
+						</h4>
+						<p>
+							Each pixel contains three values which are Red, Green, Blue, these values range from 0 to
+							255, in other words, they are 8-bit values. [4] Let’s take an example of how this technique
+							works, suppose you want to hide the message “hi” into a 4x4 image which has the following
+							pixel values: <br><br>
+							[(225, 12, 99), (155, 2, 50), (99, 51, 15), (15, 55, 22),(155, 61, 87), (63, 30, 17), (1,
+							55, 19), (99, 81, 66),(219, 77, 91), (69, 39, 50), (18, 200, 33), (25, 54, 190)] <br>
+							Using the ASCII Table, we can convert the secret message into decimal values and then into
+							binary: 0110100 0110101.Now, we iterate over the pixel values one by one, after converting
+							them to binary, we replace each least significant bit with that message bits sequentially
+							(e.g 225 is 11100001, we replace the last bit, the bit in the right (1) with the first data
+							bit (0) and so on).This will only modify the pixel values by +1 or -1 which is not
+							noticeable at all. The resulting pixel values after performing LSBS is as shown below:
+							<br><br>
+							[(224, 13, 99),(154, 3, 50),(98, 50, 15),(15, 54, 23),(154, 61, 87),(63, 30, 17),(1, 55,
+							19),(99, 81, 66),(219, 77, 91),(69, 39, 50),(18, 200, 33),(25, 54, 190)]
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="container">
+				<!-- Example row of columns -->
+				<div class="row">
+					<div class="col-md-4">
+						<h2>Heading</h2>
+						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+							tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+							malesuada magna mollis euismod. Donec sed odio dui. </p>
+						<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+					</div>
+					<div class="col-md-4">
+						<h2>Heading</h2>
+						<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
+							tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
+							malesuada magna mollis euismod. Donec sed odio dui. </p>
+						<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+					</div>
+					<div class="col-md-4">
+						<h2>Heading</h2>
+						<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum
+							id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+							condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+						<p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+					</div>
+				</div>
+
+				<hr>
+
+			</div> <!-- /container -->
+
+		</main>
+
+		<footer class="container">
+			<p>&copy; Company 2017-2020</p>
+		</footer>
+	</div>
+
+	<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+	<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+	<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+	<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+	<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+	<script src="{% static 'plugins/easing/easing.js' %}"></script>
+	<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

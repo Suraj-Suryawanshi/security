@@ -1,0 +1,109 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/responsive.css' %}">
+    <!-- Optional theme -->
+</head>
+
+<body>
+
+    <div class="super_container">
+     
+        <main class="" style="background-image:url({% static 'images/back.webp' %});" >
+        <div class="p-2">
+            <form action="register" method="post">
+            {% csrf_token %}
+                <div class="container w-50 bg-secondary">
+                    <center>
+                        <h1> User Registeration</h1>
+                    </center>
+                    <hr>
+                    <label for="">Username</label><br>
+                    <input type="text" name="username" placeholder="Username" size="16" required><br>
+                    <label> Firstname </label><br>
+                    <input type="text" name="first_name" placeholder="Firstname" size="15" required><br>
+                    <label> Lastname: </label><br>
+                    <input type="text" name="last_name" placeholder="Lastname" size="15" required><br>
+                    <!-- <div>
+                <label>
+                    Course :
+                </label>
+
+                <select>
+                    <option value="Course">Course</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BBA">BBA</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="MBA">MBA</option>
+                    <option value="MCA">MCA</option>
+                    <option value="M.Tech">M.Tech</option>
+                </select>
+            </div>
+            <div>
+                <label>
+                    Gender :
+                </label><br>
+                <input type="radio" value="Male" name="gender" checked> Male
+                <input type="radio" value="Female" name="gender"> Female
+                <input type="radio" value="Other" name="gender"> Other
+
+            </div>
+            <label>
+                Phone :
+            </label>
+            <input type="text" name="country code" placeholder="Country Code" value="+91" size="2" />
+            <input type="text" name="phone" placeholder="phone no." size="10"  required>
+            Current Address :
+            <textarea cols="80" rows="5" placeholder="Current Address" value="address" required>
+</textarea> -->
+                    <label for="email"><b>Email</b></label><br>
+                    <input type="text" placeholder="Enter Email" name="email" required><br>
+
+                    <label for="psw"><b>Password</b></label><br>
+                    <input type="password" placeholder="Enter Password" name="password" required><br>
+
+                    <label><b>Re-type Password</b></label><br>
+                    <input type="password" placeholder="Retype Password" name="pass2" required>
+                    <button type="submit" class="registerbtn">Register</button>
+            </form>
+        </div>
+        <div class='msg'>
+            <!-- {% comment %} {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %} {% endcomment %} -->
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </div>
+    </main>
+    </div>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+    <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+    <script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>
